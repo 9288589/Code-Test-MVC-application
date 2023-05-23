@@ -1,0 +1,50 @@
+﻿@using Code_Test_MVC_application.Models;
+<h4>Listing</h4>
+<div class="row">
+    <div class="col-md-4">
+        @if (Model != null) {
+            @foreach (Code_Test_MVC_application.Models.Colleges group in Model)
+            {
+                <dl class="row">
+                    <dt class="col-sm-10">
+                        @group.name
+                    </dt>
+                    <dd class="col-sm-2">
+                        @group.country
+                    </dd>
+                    <dt class="col-sm-10">
+                        @group.alphatwocode
+                    </dt>
+                    <dd class="col-sm-2">
+                        @group.stateprovince
+                    </dd>
+                    @if (group.webpages != null)
+                        {
+                        @foreach (var web in group.webpages)
+                           {
+                            <dt class="col-sm-2">
+                                Web Site
+                            </dt>
+                            <dd class="col-sm-10">
+                                <a href="@web">@web</a>
+                            </dd>
+                            }
+                        }
+                    @if (@group.domains != null)
+                    {
+                        @foreach (var item in @group.domains)
+                        {
+                            <dt class="col-sm-2">
+                                Domains
+                            </dt>
+                            <dd class="col-sm-10">
+                                @group.stateprovince
+                            </dd>
+                        }
+                    }
+                   
+                </dl>
+            }
+        }
+    </div>
+</div>
